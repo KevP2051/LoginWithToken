@@ -1,0 +1,310 @@
+[
+  {
+    "id": "336cf1e9-5662-44f8-904b-9d3575f7baa2",
+    "timestamp": "2025-09-07T19:16:59.508Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "5ecbe21d-9bf6-4e72-a6bd-c3772ae30c10",
+    "timestamp": "2025-09-07T19:16:59.511Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "218de480-d2db-44a1-a39e-bae56d783f25",
+    "timestamp": "2025-09-07T19:27:57.313Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "9dd35630-3fe4-49f3-a011-608159df2222",
+    "timestamp": "2025-09-07T19:27:58.074Z",
+    "action": "PASSWORD_RESET_ERROR",
+    "message": "Error en proceso de recuperación: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "error": "Error al enviar el email de recuperación",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "b5b54b25-da46-4b5c-afec-1a9bde3c1213",
+    "timestamp": "2025-09-07T19:42:34.142Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "f61657bd-ed60-4831-ab7f-e3cad9435644",
+    "timestamp": "2025-09-07T19:42:35.117Z",
+    "action": "PASSWORD_RESET_ERROR",
+    "message": "Error en proceso de recuperación: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "error": "Error al enviar el email de recuperación",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "11708f60-3dd3-434a-a43b-c571b488a16e",
+    "timestamp": "2025-09-07T19:44:11.223Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "53f47d54-6cad-473c-bb11-262e13298e01",
+    "timestamp": "2025-09-07T19:44:12.239Z",
+    "action": "PASSWORD_RESET_SENT",
+    "message": "Email de recuperación enviado a: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "kevin-user-123",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "8b7fc767...",
+      "emailMessageId": "<7e0d586f-264c-672d-02aa-cfcb67bfc5ec@gmail.com>",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "b4784c4f-1c76-46f2-ae40-60f3d4a672bf",
+    "timestamp": "2025-09-07T23:38:21.408Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "21461f36-1036-42a4-90fc-1db50c6518e4",
+    "timestamp": "2025-09-07T23:38:21.411Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "042f2b12-2ead-4073-9755-3d2f9c43e147",
+    "timestamp": "2025-09-07T23:38:41.462Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "91a3bb89-2630-4e4e-8500-df2fbf5e206a",
+    "timestamp": "2025-09-07T23:38:41.464Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "eb827cb5-c8b9-4845-853d-91abc39e749f",
+    "timestamp": "2025-09-07T23:38:42.601Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "0926c55e-4a5c-4f26-8295-0a48dc359803",
+    "timestamp": "2025-09-07T23:38:42.604Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "55252c6a-5322-4036-b990-b4b60ca5adcf",
+    "timestamp": "2025-09-07T23:39:16.411Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "9d54caeb-40bc-451b-9cf4-19cc7caf0648",
+    "timestamp": "2025-09-07T23:39:16.413Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "42d61090-40da-4b9b-af17-34cbe8268e17",
+    "timestamp": "2025-09-07T23:41:29.930Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "0e812b72-1ca6-49f0-b6ee-faed06c7c0d2",
+    "timestamp": "2025-09-07T23:41:31.186Z",
+    "action": "PASSWORD_RESET_SENT",
+    "message": "Email de recuperación enviado a: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "kevin-user-123",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "7471bd8c...",
+      "emailMessageId": "<3af033d4-4bac-eef7-389f-14ba695cfadf@gmail.com>",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "6f7387cf-b7f4-4c77-ad43-f971602d2723",
+    "timestamp": "2025-09-07T23:41:51.427Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de restablecimiento de contraseña",
+    "metadata": {
+      "tokenPrefix": "7471bd8c...",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "9a4f2152-206b-4653-bdda-c26a857daf5b",
+    "timestamp": "2025-09-07T23:41:51.814Z",
+    "action": "PASSWORD_RESET_SUCCESS",
+    "message": "Contraseña restablecida exitosamente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "kevin-user-123",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "7471bd8c...",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "9031905a-4c88-4273-9351-9eb3edd5bc71",
+    "timestamp": "2025-09-07T23:42:21.346Z",
+    "action": "PASSWORD_RESET_RATE_LIMIT",
+    "message": "Límite de recuperación de contraseña excedido",
+    "metadata": {
+      "ipAddress": "::1",
+      "email": "kevinpovedaj@gmail.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+      "endpoint": "/api/auth/forgot-password"
+    }
+  },
+  {
+    "id": "61375f6c-9ed3-48c6-9fc4-53958ef82670",
+    "timestamp": "2025-09-07T23:42:28.336Z",
+    "action": "PASSWORD_RESET_RATE_LIMIT",
+    "message": "Límite de recuperación de contraseña excedido",
+    "metadata": {
+      "ipAddress": "::1",
+      "email": "kevinpovedaj@gmail.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+      "endpoint": "/api/auth/forgot-password"
+    }
+  },
+  {
+    "id": "02ce3765-9dba-410a-9e45-aaee23d84038",
+    "timestamp": "2025-09-07T23:43:00.280Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "0d80f467-128d-461f-a86a-88faf9d0ff27",
+    "timestamp": "2025-09-07T23:43:01.470Z",
+    "action": "PASSWORD_RESET_SENT",
+    "message": "Email de recuperación enviado a: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "kevin-user-123",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "8e94ef53...",
+      "emailMessageId": "<8b4da01e-096f-d1eb-de56-22d365532ab0@gmail.com>",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "892b4aa9-a2aa-4ac5-b26a-22e5027bfb82",
+    "timestamp": "2025-09-07T23:43:42.244Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de restablecimiento de contraseña",
+    "metadata": {
+      "tokenPrefix": "8e94ef53...",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "f35fd22f-9394-480f-a686-21c3c6f83ede",
+    "timestamp": "2025-09-07T23:43:42.607Z",
+    "action": "PASSWORD_RESET_SUCCESS",
+    "message": "Contraseña restablecida exitosamente: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "kevin-user-123",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "8e94ef53...",
+      "userAgent": "Unknown"
+    }
+  }
+]
