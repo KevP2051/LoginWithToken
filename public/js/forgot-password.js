@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         } catch (error) {
-            console.error('Error:', error);
+            // Error
             showMessage(
                 'Error de conexión. Por favor verifica tu conexión a internet e inténtalo de nuevo.',
                 'danger'

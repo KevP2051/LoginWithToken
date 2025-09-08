@@ -10,7 +10,7 @@ const setupDirectories = () => {
     
     if (!fs.existsSync(dataDir)) {
         fs.mkdirSync(dataDir, { recursive: true });
-        console.log('Directorio data creado');
+    // Directorio data creado
     }
 
     // Inicializar archivos de datos si no existen
@@ -24,7 +24,7 @@ const setupDirectories = () => {
     files.forEach(file => {
         if (!fs.existsSync(file.path)) {
             fs.writeFileSync(file.path, file.content, 'utf8');
-            console.log(`📄 Archivo ${path.basename(file.path)} inicializado`);
+            // Archivo inicializado
         }
     });
 };
@@ -47,7 +47,7 @@ const readJsonFile = (fileName) => {
         const data = fs.readFileSync(filePath, 'utf8');
         return JSON.parse(data);
     } catch (error) {
-        console.error(`Error leyendo ${fileName}:`, error.message);
+    // Error leyendo archivo
         // Devolver estructura por defecto en caso de error
         return fileName.includes('blocked_accounts') || fileName.includes('password_resets') ? {} : [];
     }
@@ -66,7 +66,7 @@ const writeJsonFile = (fileName, data) => {
         fs.writeFileSync(filePath, jsonData, 'utf8');
         return true;
     } catch (error) {
-        console.error(`Error escribiendo en ${fileName}:`, error.message);
+    // Error escribiendo archivo
         return false;
     }
 };
@@ -106,7 +106,7 @@ const encrypt = (text, key = process.env.JWT_SECRET) => {
         
         return `${iv.toString('hex')}:${authTag.toString('hex')}:${encrypted}`;
     } catch (error) {
-        console.error('Error encriptando datos:', error);
+    // Error encriptando datos
         throw new Error('Error en proceso de encriptación');
     }
 };
@@ -137,7 +137,7 @@ const decrypt = (encryptedData, key = process.env.JWT_SECRET) => {
         
         return decrypted;
     } catch (error) {
-        console.error('Error desencriptando datos:', error);
+    // Error desencriptando datos
         throw new Error('Error en proceso de desencriptación');
     }
 };
@@ -171,10 +171,10 @@ const createBackup = () => {
         
         fs.writeFileSync(backupPath + '.json', JSON.stringify(backupData, null, 2));
         
-        console.log(`Backup creado: ${backupPath}.json`);
+    // Backup creado
         return backupPath + '.json';
     } catch (error) {
-        console.error('Error creando backup:', error);
+    // Error creando backup
         throw error;
     }
 };
@@ -214,7 +214,7 @@ const validateDataIntegrity = () => {
         
         return results;
     } catch (error) {
-        console.error('Error validando integridad:', error);
+    // Error validando integridad
         return {
             valid: false,
             errors: ['Error general de validación'],

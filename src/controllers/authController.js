@@ -240,29 +240,160 @@ class AuthController {
 
     // TODO: Implementar otros métodos (login, register, logout, refreshToken)
     static async login(req, res) {
-        const { email, password } = req.body;
-        const user = await authenticateUser(email, password);
-        if (!user) {
-            return res.status(401).render('login', { error: 'Email o contraseña incorrectos' });
+        try {
+            const { email, password } = req.body;
+            
+            if (!email || !password) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Email y contraseña son requeridos'
+                });
+            }
+
+            const user = await authenticateUser(email, password);
+            
+            if (!user) {
+                Logger.log('LOGIN_FAILED', 'Intento de login fallido', {
+                    email,
+                    ipAddress: req.ip,
+                    userAgent: req.get('User-Agent')
+                });
+
+                return res.status(401).json({
+                    success: false,
+                    message: 'Email o contraseña incorrectos'
+                });
+            }
+
+            const token = generateToken(user);
+            
+            // Establecer cookie httpOnly para seguridad
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                maxAge: 24 * 60 * 60 * 1000, // 24 horas
+                sameSite: 'strict'
+            });
+
+            Logger.log('LOGIN_SUCCESS', 'Login exitoso', {
+                userId: user.id,
+                email: user.email,
+                role: user.role,
+                ipAddress: req.ip
+            });
+
+            return res.status(200).json({
+                success: true,
+                message: 'Login exitoso',
+                data: {
+                    user: {
+                        id: user.id,
+                        email: user.email,
+                        username: user.username,
+                        role: user.role
+                    },
+                    token: token
+                }
+            });
+
+        } catch (error) {
+            console.error('Error en login:', error);
+            Logger.log('LOGIN_ERROR', 'Error en proceso de login', {
+                error: error.message,
+                ipAddress: req.ip
+            });
+
+            return res.status(500).json({
+                success: false,
+                message: 'Error interno del servidor'
+            });
         }
-        const token = generateToken(user);
-        // Puedes enviar el token en cookie httpOnly para seguridad
-        res.cookie('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            maxAge: 24 * 60 * 60 * 1000, // 24 horas
-        });
-        res.redirect('/dashboard');
     }
 
     static async register(req, res) {
-        // TODO: Implementar registro
-        res.status(501).json({ message: 'Registro no implementado aún' });
+        const fs = require('fs');
+        const path = require('path');
+        const bcrypt = require('bcryptjs');
+        const usersPath = path.join(__dirname, '../../data/users.json');
+        try {
+            const { username, email, password, confirmPassword } = req.body;
+            if (!username || !email || !password || !confirmPassword) {
+                return res.status(400).json({ success: false, message: 'Todos los campos son obligatorios' });
+            }
+            if (password !== confirmPassword) {
+                return res.status(400).json({ success: false, message: 'Las contraseñas no coinciden' });
+            }
+            if (password.length < 8) {
+                return res.status(400).json({ success: false, message: 'La contraseña debe tener al menos 8 caracteres' });
+            }
+            // Validar email simple
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                return res.status(400).json({ success: false, message: 'Email inválido' });
+            }
+            // Leer usuarios
+            let users = [];
+            if (fs.existsSync(usersPath)) {
+                users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+            }
+            // Verificar si ya existe ese email o username
+            if (users.some(u => u.email === email)) {
+                return res.status(400).json({ success: false, message: 'Ya existe una cuenta con ese email' });
+            }
+            if (users.some(u => u.username === username)) {
+                return res.status(400).json({ success: false, message: 'El nombre de usuario ya está en uso' });
+            }
+            // Crear usuario
+            const hashed = await bcrypt.hash(password, 12);
+            const newUser = {
+                id: 'user-' + Date.now(),
+                email,
+                username,
+                password: hashed,
+                firstName: '',
+                lastName: '',
+                role: 'user',
+                isActive: true,
+                createdAt: new Date().toISOString(),
+                lastLogin: null,
+                failedLoginAttempts: 0,
+                lockUntil: null
+            };
+            users.push(newUser);
+            fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+            Logger.log('REGISTER_SUCCESS', 'Nuevo usuario registrado', {
+                email,
+                username,
+                ipAddress: req.ip
+            });
+            return res.status(201).json({ success: true, message: 'Cuenta creada exitosamente' });
+        } catch (error) {
+            console.error('Error en register:', error);
+            Logger.log('REGISTER_ERROR', 'Error en registro', { error: error.message, ipAddress: req.ip });
+            return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
     }
 
     static async logout(req, res) {
-        res.clearCookie('token');
-        res.redirect('/login');
+        try {
+            Logger.log('LOGOUT', 'Usuario cerró sesión', {
+                userId: req.user?.id,
+                ipAddress: req.ip
+            });
+
+            res.clearCookie('token');
+            
+            return res.status(200).json({
+                success: true,
+                message: 'Sesión cerrada exitosamente'
+            });
+
+        } catch (error) {
+            console.error('Error en logout:', error);
+            return res.status(500).json({
+                success: false,
+                message: 'Error cerrando sesión'
+            });
+        }
     }
 
     static async refreshToken(req, res) {

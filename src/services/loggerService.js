@@ -21,11 +21,11 @@ class Logger {
             writeJsonFile('logs.json', logs);
 
             // También log en consola para desarrollo
-            console.log(`[${logEntry.timestamp}] ${action}: ${message}`, metadata);
+            // Log de acción
 
             return logEntry;
         } catch (error) {
-            console.error('Error logging action:', error);
+            // Error logging action
         }
     }
 
@@ -68,7 +68,7 @@ class Logger {
             return logs.slice(0, limit);
 
         } catch (error) {
-            console.error('Error getting logs:', error);
+            // Error getting logs
             return [];
         }
     }

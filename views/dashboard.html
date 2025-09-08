@@ -5,16 +5,399 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Sistema de Autenticación</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- TODO: Implementar dashboard de usuario -->
-    <div class="container">
-        <h1>Dashboard</h1>
-        <!-- Panel de usuario aquí -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-shield-lock"></i> Sistema de Roles</a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text me-3" id="user-info">
+                    <i class="bi bi-person-circle"></i> <span id="username">Usuario</span> 
+                    (<span id="user-role" class="badge bg-secondary">role</span>)
+                </span>
+                <a class="nav-link" href="#" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info" role="alert" id="welcome-message">
+                    <i class="bi bi-info-circle"></i> Bienvenido al dashboard
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="dashboard-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button">
+                            <i class="bi bi-person"></i> Mi Perfil
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation" id="moderator-tab-container" style="display: none;">
+                        <button class="nav-link" id="moderator-tab" data-bs-toggle="tab" data-bs-target="#moderator" type="button">
+                            <i class="bi bi-shield-check"></i> Moderación
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation" id="admin-tab-container" style="display: none;">
+                        <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button">
+                            <i class="bi bi-gear"></i> Administración
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-3" id="dashboard-content">
+            <!-- Profile Tab -->
+            <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-person-circle"></i> Perfil de Usuario</h5>
+                    </div>
+                    <div class="card-body" id="profile-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Usuario:</strong> <span id="profile-username">-</span></p>
+                                <p><strong>Rol:</strong> <span id="profile-role" class="badge">-</span></p>
+                                <p><strong>Email:</strong> <span id="profile-email">-</span></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Último acceso:</strong> <span id="profile-last-login">-</span></p>
+                                <p><strong>Total inicios:</strong> <span id="profile-login-count">-</span></p>
+                                <p><strong>Notificaciones:</strong> <span id="profile-notifications" class="badge bg-warning">0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moderator Tab -->
+            <div class="tab-pane fade" id="moderator" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-shield-check"></i> Panel de Moderación</h5>
+                    </div>
+                    <div class="card-body" id="moderator-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card bg-warning text-dark">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-exclamation-triangle"></i> Reportes Pendientes</h5>
+                                        <p class="card-text display-6" id="pending-reports">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-clipboard-check"></i> Total Reportes</h5>
+                                        <p class="card-text display-6" id="total-reports">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Tab -->
+            <div class="tab-pane fade" id="admin" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-gear"></i> Panel de Administración</h5>
+                    </div>
+                    <div class="card-body" id="admin-content">
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body">
+                                        <h6><i class="bi bi-people"></i> Total Usuarios</h6>
+                                        <p class="display-6" id="total-users">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h6><i class="bi bi-shield"></i> Moderadores</h6>
+                                        <p class="display-6" id="total-moderators">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-body">
+                                        <h6><i class="bi bi-file-text"></i> Total Logs</h6>
+                                        <p class="display-6" id="total-logs">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-warning text-dark">
+                                    <div class="card-body">
+                                        <h6><i class="bi bi-activity"></i> Sistema</h6>
+                                        <p class="h6" id="system-status">Estado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- User Management Table -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h6><i class="bi bi-table"></i> Gestión de Usuarios</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Usuario</th>
+                                                <th>Email</th>
+                                                <th>Rol</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="users-table">
+                                            <!-- Usuarios se cargarán aquí -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabla de logs reales (solo visible para admin y si hay logs) -->
+            <div class="card mt-4" id="logs-card" style="display:none;">
+                <div class="card-header">
+                    <h6><i class="bi bi-clipboard-data"></i> Logs del Sistema</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="max-height:300px;overflow:auto;">
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Acción</th>
+                                    <th>Mensaje</th>
+                                    <th>Email</th>
+                                    <th>IP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logs-table">
+                                <!-- Logs se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="text-center mt-5" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/dashboard.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        // Dashboard JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+        });
+
+        async function loadDashboardData() {
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/dashboard', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        populateDashboard(result.data);
+                        setupRoleBasedUI(result.data.role);
+                    } else {
+                        showError('Error al cargar datos del dashboard');
+                    }
+                } else if (response.status === 401) {
+                    window.location.href = '/login';
+                } else {
+                    showError('Error de conexión');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error al cargar el dashboard');
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        function populateDashboard(data) {
+            // Información del usuario
+            document.getElementById('username').textContent = data.username;
+            document.getElementById('user-role').textContent = data.role;
+            document.getElementById('user-role').className = `badge bg-${getRoleBadgeColor(data.role)}`;
+
+            // Perfil
+            document.getElementById('profile-username').textContent = data.username;
+            document.getElementById('profile-role').textContent = data.role;
+            document.getElementById('profile-role').className = `badge bg-${getRoleBadgeColor(data.role)}`;
+            document.getElementById('profile-email').textContent = data.email || '-';
+
+            // Datos específicos por rol
+            if (data.userData) {
+                document.getElementById('profile-last-login').textContent = 
+                    new Date(data.userData.lastLogin).toLocaleString();
+                document.getElementById('profile-notifications').textContent = data.userData.notifications;
+            }
+
+            if (data.moderatorData && (data.role === 'moderator' || data.role === 'admin')) {
+                document.getElementById('pending-reports').textContent = data.moderatorData.pendingReviews;
+                document.getElementById('total-reports').textContent = data.moderatorData.totalReports;
+            }
+
+            // Mostrar logs solo si es admin y hay logs
+            const logsCard = document.getElementById('logs-card');
+            if (data.adminData && data.role === 'admin' && Array.isArray(data.adminData.logs) && data.adminData.logs.length > 0) {
+                logsCard.style.display = 'block';
+                populateLogsTable(data.adminData.logs);
+            } else {
+                logsCard.style.display = 'none';
+            }
+
+            if (data.adminData && data.role === 'admin') {
+                loadAdminData();
+            }
+
+            // Mensaje de bienvenida
+            const welcomeMsg = document.getElementById('welcome-message');
+            welcomeMsg.innerHTML = `<i class=\"bi bi-info-circle\"></i> Bienvenido, <strong>${data.username}</strong>! Tu rol es: <span class=\"badge bg-${getRoleBadgeColor(data.role)}\">${data.role}</span>`;
+        }
+
+        function setupRoleBasedUI(role) {
+            // Mostrar tabs según el rol
+            if (role === 'moderator' || role === 'admin') {
+                document.getElementById('moderator-tab-container').style.display = 'block';
+            }
+
+            if (role === 'admin') {
+                document.getElementById('admin-tab-container').style.display = 'block';
+            }
+        }
+
+        async function loadAdminData() {
+            try {
+                const response = await fetch('/api/dashboard/admin', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        populateAdminData(result.data);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading admin data:', error);
+            }
+        }
+
+        function populateAdminData(adminData) {
+            // Estadísticas
+            document.getElementById('total-users').textContent = adminData.users.length;
+            document.getElementById('total-moderators').textContent = 
+                adminData.users.filter(u => u.role === 'moderator').length;
+            document.getElementById('system-status').textContent = adminData.systemStats.uptime;
+            // Mostrar total de logs reales
+            if (Array.isArray(adminData.logs)) {
+                document.getElementById('total-logs').textContent = adminData.logs.length;
+            }
+
+            // Tabla de usuarios
+            const tbody = document.getElementById('users-table');
+            tbody.innerHTML = '';
+            adminData.users.forEach(user => {
+                const row = `
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email || '-'}</td>
+                        <td><span class="badge bg-${getRoleBadgeColor(user.role)}">${user.role}</span></td>
+                        <td><span class="badge bg-success">${user.status}</span></td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            // Tabla de logs
+            populateLogsTable(adminData.logs || []);
+        }
+
+        function populateLogsTable(logs) {
+            const tbody = document.getElementById('logs-table');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            logs.forEach(log => {
+                const fecha = log.timestamp ? new Date(log.timestamp).toLocaleString() : '-';
+                const email = (log.metadata && log.metadata.email) ? log.metadata.email : '-';
+                const ip = (log.metadata && log.metadata.ipAddress) ? log.metadata.ipAddress : '-';
+                const row = `
+                    <tr>
+                        <td>${fecha}</td>
+                        <td>${log.action || '-'}</td>
+                        <td>${log.message || '-'}</td>
+                        <td>${email}</td>
+                        <td>${ip}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function getRoleBadgeColor(role) {
+            switch (role) {
+                case 'admin': return 'danger';
+                case 'moderator': return 'warning';
+                case 'user': return 'primary';
+                default: return 'secondary';
+            }
+        }
+
+        function showError(message) {
+            const welcomeMsg = document.getElementById('welcome-message');
+            welcomeMsg.className = 'alert alert-danger';
+            welcomeMsg.innerHTML = `<i class="bi bi-exclamation-triangle"></i> ${message}`;
+        }
+
+        function logout() {
+            if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+                document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                window.location.href = '/login';
+            }
+        }
+    </script>
 </body>
 </html>
