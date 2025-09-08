@@ -9,6 +9,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
+const dashboardRoutes = require('./routes/dashboard');
 
 const errorHandler = require('./middleware/errorHandler');
 const { setupDirectories } = require('./utils/fileManager');
@@ -37,6 +38,7 @@ app.set('views', path.join(__dirname, '../views'));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {

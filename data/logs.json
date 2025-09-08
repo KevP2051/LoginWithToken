@@ -352,5 +352,147 @@
       "success": false,
       "userAgent": "Unknown"
     }
+  },
+  {
+    "id": "22480fe4-b531-4f12-b8b9-7717e564bcb1",
+    "timestamp": "2025-09-08T17:33:35.755Z",
+    "action": "LOGIN_ERROR",
+    "message": "Error en proceso de login",
+    "metadata": {
+      "error": "Illegal arguments: string, undefined",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "97df2fd5-ec77-4db1-98b9-a3a5144a8890",
+    "timestamp": "2025-09-08T17:33:37.784Z",
+    "action": "LOGIN_ERROR",
+    "message": "Error en proceso de login",
+    "metadata": {
+      "error": "Illegal arguments: string, undefined",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "141210eb-c502-400f-b2ab-8bba21051294",
+    "timestamp": "2025-09-08T17:34:57.183Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::ffff:127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "e57a8e22-1550-4502-8911-911342fadffe",
+    "timestamp": "2025-09-08T17:35:06.205Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "admin@test.com",
+      "ipAddress": "::ffff:127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "ebaa0ba6-51eb-424b-89fc-691a9879a90f",
+    "timestamp": "2025-09-08T17:35:08.712Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "admin@test.com",
+      "ipAddress": "::ffff:127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "ff516984-7fb0-4436-87e6-6e27d2af9bee",
+    "timestamp": "2025-09-08T17:35:26.171Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "admin@test.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "3984430b-3708-42f1-a107-6f2d5a95d61c",
+    "timestamp": "2025-09-08T17:37:19.078Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "moderator@test.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "0c5e3cb3-be3f-41b8-96a8-b01897ae7c69",
+    "timestamp": "2025-09-08T17:39:22.985Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "moderator-001",
+      "email": "moderator@test.com",
+      "role": "moderator",
+      "ipAddress": "::ffff:127.0.0.1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "207198ff-019c-4211-8a34-d4664e418662",
+    "timestamp": "2025-09-08T17:39:52.253Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "57c4f771-04f6-4248-910f-da76befd75f9",
+    "timestamp": "2025-09-08T17:40:21.647Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "user-001",
+      "email": "user@test.com",
+      "role": "user",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "9ddced40-b7a4-4df7-baf4-d0ef59505ac3",
+    "timestamp": "2025-09-08T17:40:53.791Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "298af870-749f-4b10-be72-cfdbb1da3e0c",
+    "timestamp": "2025-09-08T17:44:27.609Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
   }
 ]

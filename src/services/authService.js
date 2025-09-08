@@ -14,14 +14,39 @@ function getUsers() {
 }
 
 async function authenticateUser (email, password) {
-  const users = getUsers();
-  const user = users.find(u => u.email === email);
-  if (!user) return null;
+  try {
+    const users = getUsers();
+    const user = users.find(u => u.email === email);
+    
+    if (!user) {
+      console.log(`Usuario no encontrado: ${email}`);
+      return null;
+    }
 
-  const validPassword = await bcrypt.compare(password, user.passwordHash);
-  if (!validPassword) return null;
+    if (!user.password) {
+      console.log(`Usuario ${email} no tiene campo password`);
+      return null;
+    }
 
-  return user;
+    if (!password) {
+      console.log('Password no proporcionado');
+      return null;
+    }
+
+    console.log(`Autenticando usuario: ${email}`);
+    const validPassword = await bcrypt.compare(password, user.password);
+    
+    if (!validPassword) {
+      console.log(`Password inválido para usuario: ${email}`);
+      return null;
+    }
+
+    console.log(`Autenticación exitosa para: ${email}`);
+    return user;
+  } catch (error) {
+    console.error('Error en authenticateUser:', error);
+    throw error;
+  }
 }
 
 function generateToken(user) {
