@@ -1,0 +1,16 @@
+[
+  {
+    "id": "kevin-user-123",
+    "email": "kevinpovedaj@gmail.com",
+    "username": "kevin",
+    "password": "$2a$12$LrW2fNyn0ypJLtX5glG7Pe1iPE/TXfdtQwfa51qI78po5b94J0D.e",
+    "firstName": "Kevin",
+    "lastName": "Poveda",
+    "role": "user",
+    "isActive": true,
+    "createdAt": "2025-09-07T19:00:00.000Z",
+    "lastLogin": null,
+    "failedLoginAttempts": 0,
+    "lockUntil": null
+  }
+]
