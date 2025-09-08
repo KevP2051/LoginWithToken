@@ -797,5 +797,44 @@
       "email": "kevinpovedaj@gmail.com",
       "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
     }
+  },
+  {
+    "id": "a5c2312b-4f7e-4cd6-8223-cb5af9d96c05",
+    "timestamp": "2025-09-08T18:18:36.423Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "user-1",
+      "email": "kevinpovedaj@gmail.com",
+      "role": "user",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "f1fe8e54-48da-4e62-8eb6-f838212b4cc3",
+    "timestamp": "2025-09-08T18:19:03.539Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "admin-1",
+      "email": "kevin.jimenez03@uptc.edu.co",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "e3267f8f-7a76-42b7-bfb2-df59854ad580",
+    "timestamp": "2025-09-08T18:19:44.423Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "mod-1",
+      "email": "moderador.fake@correo.com",
+      "role": "moderator",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
   }
 ]
