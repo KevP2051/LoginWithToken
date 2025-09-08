@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Logger = require('../services/loggerService');
 
+require('dotenv').config();
+
 const verifyToken = (req, res, next) => {
     try {
         // Buscar token en header Authorization

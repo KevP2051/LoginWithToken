@@ -70,7 +70,7 @@ const passwordResetLimiter = rateLimit({
  */
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 10, // Máximo 10 intentos de login por IP
+    max: 5, // Máximo 10 intentos de login por IP
     message: {
         success: false,
         message: 'Demasiados intentos de login. Intenta de nuevo en 15 minutos.',

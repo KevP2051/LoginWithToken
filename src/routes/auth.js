@@ -213,12 +213,14 @@ router.post('/cleanup-tokens',
 
 // ============= OTRAS RUTAS DE AUTH (TODO) =============
 
+router.get('/login', (req, res) => res.render('login', { error: null }));
+
 /**
  * @route   POST /api/auth/login
  * @desc    Iniciar sesión
  * @access  Public
  */
-router.post('/login', AuthController.login);
+router.post('/login', rateLimiter.loginLimiter, AuthController.login);
 
 /**
  * @route   POST /api/auth/register
