@@ -11,6 +11,7 @@ const adminRoutes = require('./routes/admin');
 
 const errorHandler = require('./middleware/errorHandler');
 const { setupDirectories } = require('./utils/fileManager');
+const { swaggerUi, specs } = require('./config/swagger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,13 @@ app.set('views', path.join(__dirname, '../views'));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
+
+// Swagger Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+    explorer: true,
+    customCss: '.swagger-ui .topbar { display: none }',
+    customSiteTitle: 'API Documentation - Sistema de Login'
+}));
 
 // Frontend routes
 app.get('/', (req, res) => {

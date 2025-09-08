@@ -306,5 +306,51 @@
       "resetTokenPrefix": "8e94ef53...",
       "userAgent": "Unknown"
     }
+  },
+  {
+    "id": "ce4a5d7f-81c7-485a-9937-8440eff4bcad",
+    "timestamp": "2025-09-08T00:17:02.439Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: usuario@ejemplo.com",
+    "metadata": {
+      "email": "usuario@ejemplo.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "2b348e11-7d09-4a2c-b910-5173e992579d",
+    "timestamp": "2025-09-08T00:17:02.461Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: usuario@ejemplo.com",
+    "metadata": {
+      "email": "usuario@ejemplo.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "9bc74324-3ba8-49ee-9eec-fdad67d4516a",
+    "timestamp": "2025-09-08T00:17:08.647Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: usuario@ejemplo.com",
+    "metadata": {
+      "email": "usuario@ejemplo.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "41c31fc7-b25b-452e-8326-7fd579a361a3",
+    "timestamp": "2025-09-08T00:17:08.649Z",
+    "action": "PASSWORD_RESET_ATTEMPT",
+    "message": "Intento de reset para email inexistente: usuario@ejemplo.com",
+    "metadata": {
+      "email": "usuario@ejemplo.com",
+      "ipAddress": "::1",
+      "success": false,
+      "userAgent": "Unknown"
+    }
   }
 ]
