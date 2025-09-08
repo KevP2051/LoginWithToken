@@ -311,8 +311,66 @@ class AuthController {
     }
 
     static async register(req, res) {
-        // TODO: Implementar registro
-        res.status(501).json({ message: 'Registro no implementado aún' });
+        const fs = require('fs');
+        const path = require('path');
+        const bcrypt = require('bcryptjs');
+        const usersPath = path.join(__dirname, '../../data/users.json');
+        try {
+            const { username, email, password, confirmPassword } = req.body;
+            if (!username || !email || !password || !confirmPassword) {
+                return res.status(400).json({ success: false, message: 'Todos los campos son obligatorios' });
+            }
+            if (password !== confirmPassword) {
+                return res.status(400).json({ success: false, message: 'Las contraseñas no coinciden' });
+            }
+            if (password.length < 8) {
+                return res.status(400).json({ success: false, message: 'La contraseña debe tener al menos 8 caracteres' });
+            }
+            // Validar email simple
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                return res.status(400).json({ success: false, message: 'Email inválido' });
+            }
+            // Leer usuarios
+            let users = [];
+            if (fs.existsSync(usersPath)) {
+                users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+            }
+            // Verificar si ya existe ese email o username
+            if (users.some(u => u.email === email)) {
+                return res.status(400).json({ success: false, message: 'Ya existe una cuenta con ese email' });
+            }
+            if (users.some(u => u.username === username)) {
+                return res.status(400).json({ success: false, message: 'El nombre de usuario ya está en uso' });
+            }
+            // Crear usuario
+            const hashed = await bcrypt.hash(password, 12);
+            const newUser = {
+                id: 'user-' + Date.now(),
+                email,
+                username,
+                password: hashed,
+                firstName: '',
+                lastName: '',
+                role: 'user',
+                isActive: true,
+                createdAt: new Date().toISOString(),
+                lastLogin: null,
+                failedLoginAttempts: 0,
+                lockUntil: null
+            };
+            users.push(newUser);
+            fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+            Logger.log('REGISTER_SUCCESS', 'Nuevo usuario registrado', {
+                email,
+                username,
+                ipAddress: req.ip
+            });
+            return res.status(201).json({ success: true, message: 'Cuenta creada exitosamente' });
+        } catch (error) {
+            console.error('Error en register:', error);
+            Logger.log('REGISTER_ERROR', 'Error en registro', { error: error.message, ipAddress: req.ip });
+            return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
     }
 
     static async logout(req, res) {
