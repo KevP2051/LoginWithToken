@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <!-- Main Container -->
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
@@ -181,8 +181,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Tabla de logs reales -->
-            <div class="card mt-4">
+            <!-- Tabla de logs reales (solo visible para admin y si hay logs) -->
+            <div class="card mt-4" id="logs-card" style="display:none;">
                 <div class="card-header">
                     <h6><i class="bi bi-clipboard-data"></i> Logs del Sistema</h6>
                 </div>
@@ -278,15 +278,22 @@
                 document.getElementById('total-reports').textContent = data.moderatorData.totalReports;
             }
 
+            // Mostrar logs solo si es admin y hay logs
+            const logsCard = document.getElementById('logs-card');
+            if (data.adminData && data.role === 'admin' && Array.isArray(data.adminData.logs) && data.adminData.logs.length > 0) {
+                logsCard.style.display = 'block';
+                populateLogsTable(data.adminData.logs);
+            } else {
+                logsCard.style.display = 'none';
+            }
+
             if (data.adminData && data.role === 'admin') {
                 loadAdminData();
-                // Mostrar logs en la tabla
-                populateLogsTable(data.adminData.logs || []);
             }
 
             // Mensaje de bienvenida
             const welcomeMsg = document.getElementById('welcome-message');
-            welcomeMsg.innerHTML = `<i class="bi bi-info-circle"></i> Bienvenido, <strong>${data.username}</strong>! Tu rol es: <span class="badge bg-${getRoleBadgeColor(data.role)}">${data.role}</span>`;
+            welcomeMsg.innerHTML = `<i class=\"bi bi-info-circle\"></i> Bienvenido, <strong>${data.username}</strong>! Tu rol es: <span class=\"badge bg-${getRoleBadgeColor(data.role)}\">${data.role}</span>`;
         }
 
         function setupRoleBasedUI(role) {
@@ -324,6 +331,10 @@
             document.getElementById('total-moderators').textContent = 
                 adminData.users.filter(u => u.role === 'moderator').length;
             document.getElementById('system-status').textContent = adminData.systemStats.uptime;
+            // Mostrar total de logs reales
+            if (Array.isArray(adminData.logs)) {
+                document.getElementById('total-logs').textContent = adminData.logs.length;
+            }
 
             // Tabla de usuarios
             const tbody = document.getElementById('users-table');

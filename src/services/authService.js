@@ -19,32 +19,32 @@ async function authenticateUser (email, password) {
     const user = users.find(u => u.email === email);
     
     if (!user) {
-      console.log(`Usuario no encontrado: ${email}`);
+  // Usuario no encontrado
       return null;
     }
 
     if (!user.password) {
-      console.log(`Usuario ${email} no tiene campo password`);
+  // Usuario sin campo password
       return null;
     }
 
     if (!password) {
-      console.log('Password no proporcionado');
+  // Password no proporcionado
       return null;
     }
 
-    console.log(`Autenticando usuario: ${email}`);
+  // Autenticando usuario
     const validPassword = await bcrypt.compare(password, user.password);
     
     if (!validPassword) {
-      console.log(`Password inválido para usuario: ${email}`);
+  // Password inválido
       return null;
     }
 
-    console.log(`Autenticación exitosa para: ${email}`);
+  // Autenticación exitosa
     return user;
   } catch (error) {
-    console.error('Error en authenticateUser:', error);
+  // Error en authenticateUser
     throw error;
   }
 }

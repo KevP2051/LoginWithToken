@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
         } catch (error) {
-            console.error('Error validando token:', error);
+            // Error validando token
             showTokenError('Error de conexión al validar el token');
         }
     }
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
             } catch (error) {
-                console.error('Error:', error);
+                // Error
                 showMessage('Error de conexión. Inténtalo de nuevo.', 'danger');
             } finally {
                 setSubmitLoading(false);

@@ -594,5 +594,208 @@
       "ipAddress": "::1",
       "userAgent": "Unknown"
     }
+  },
+  {
+    "id": "4ca7d749-40d6-4eaa-b1bf-00891fe0627c",
+    "timestamp": "2025-09-08T17:59:18.880Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "3e98b173-f91c-4f8b-9e53-13d97c96e214",
+    "timestamp": "2025-09-08T17:59:32.276Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "user-001",
+      "email": "user@test.com",
+      "role": "user",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "2aefb356-ef5d-4ec9-b52a-16f55469eb29",
+    "timestamp": "2025-09-08T17:59:49.067Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "2bada1d2-58c3-46cd-b348-b0cc3a12d924",
+    "timestamp": "2025-09-08T18:00:31.862Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "kevin-user-123",
+      "email": "admin@test.com",
+      "role": "admin",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "5dfaa202-a464-4554-9867-f1f2c328be84",
+    "timestamp": "2025-09-08T18:11:27.634Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "user-1",
+      "email": "kevinpovedaj@gmail.com",
+      "role": "user",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "e78332a2-e248-4414-98b7-45e7d5ed38b4",
+    "timestamp": "2025-09-08T18:11:46.369Z",
+    "action": "PASSWORD_RESET_REQUEST",
+    "message": "Solicitud de recuperación para: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "66aa7a5c-16cc-4c2f-abf2-f155532dfdcc",
+    "timestamp": "2025-09-08T18:11:47.696Z",
+    "action": "PASSWORD_RESET_SENT",
+    "message": "Email de recuperación enviado a: kevinpovedaj@gmail.com",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "userId": "user-1",
+      "ipAddress": "::1",
+      "resetTokenPrefix": "916aa1fa...",
+      "emailMessageId": "<057da298-b3d6-787f-1e7c-ff7c839b38d4@gmail.com>",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "cc3bc208-9a47-4b6c-b7dc-9130943f813e",
+    "timestamp": "2025-09-08T18:12:31.389Z",
+    "action": "REGISTER_SUCCESS",
+    "message": "Nuevo usuario registrado",
+    "metadata": {
+      "email": "userprueba123@prueba.com",
+      "username": "userprueba123",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "69fa11d4-976c-4885-9c3c-193db34d3be9",
+    "timestamp": "2025-09-08T18:12:36.471Z",
+    "action": "LOGIN_SUCCESS",
+    "message": "Login exitoso",
+    "metadata": {
+      "userId": "user-1757355151387",
+      "email": "userprueba123@prueba.com",
+      "role": "user",
+      "ipAddress": "::1",
+      "userAgent": "Unknown"
+    }
+  },
+  {
+    "id": "c99d4947-948e-4ec6-a86e-b2562d99ca12",
+    "timestamp": "2025-09-08T18:12:47.468Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "8bb7716e-36e0-4ab1-9144-9a1816d233f7",
+    "timestamp": "2025-09-08T18:12:48.934Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "c6e4aa4c-c23d-4d56-8772-54337516ed78",
+    "timestamp": "2025-09-08T18:12:49.904Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "e099b4de-343c-4d0e-9161-d0aecf14adce",
+    "timestamp": "2025-09-08T18:12:50.692Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "c11258bc-ed56-4161-8b3b-c06c5da98cbb",
+    "timestamp": "2025-09-08T18:12:51.496Z",
+    "action": "LOGIN_FAILED",
+    "message": "Intento de login fallido",
+    "metadata": {
+      "email": "kevinpovedaj@gmail.com",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "7af453eb-121e-4d38-89d5-d9508708969f",
+    "timestamp": "2025-09-08T18:12:51.963Z",
+    "action": "LOGIN_RATE_LIMIT",
+    "message": "Límite de intentos de login excedido",
+    "metadata": {
+      "ipAddress": "::1",
+      "email": "kevinpovedaj@gmail.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "85b5e97b-3269-4aaa-92ec-c3f752a0a870",
+    "timestamp": "2025-09-08T18:12:53.927Z",
+    "action": "LOGIN_RATE_LIMIT",
+    "message": "Límite de intentos de login excedido",
+    "metadata": {
+      "ipAddress": "::1",
+      "email": "kevinpovedaj@gmail.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "id": "a4a9b02e-8df4-41ea-b9c5-86641c07e388",
+    "timestamp": "2025-09-08T18:12:54.423Z",
+    "action": "LOGIN_RATE_LIMIT",
+    "message": "Límite de intentos de login excedido",
+    "metadata": {
+      "ipAddress": "::1",
+      "email": "kevinpovedaj@gmail.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    }
   }
 ]
