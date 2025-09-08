@@ -1,5 +1,5 @@
 const express = require('express');
-const AuthController = require('../controllers/authController');
+const { AuthController } = require('../controllers/authController');
 const rateLimiter = require('../middleware/rateLimiter');
 const auth = require('../middleware/auth');
 
@@ -67,11 +67,14 @@ const router = express.Router();
  *                     message:
  *                       example: "Demasiados intentos. Intenta de nuevo en 1 hora."
  */
+// TEMPORALMENTE COMENTADO PARA DEBUG
+/*
 router.post('/forgot-password', 
     rateLimiter.passwordResetLimiter,
     AuthController.forgotPasswordValidation,
     AuthController.forgotPassword
 );
+*/
 
 /**
  * @swagger

@@ -27,7 +27,7 @@ app.use(morgan('combined'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: '10mb' }));
-app.use(cookieParser);
+app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, '../public')));
 
