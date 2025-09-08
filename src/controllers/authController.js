@@ -1,5 +1,5 @@
 const { body, validationResult } = require('express-validator');
-const AuthService = require('../services/authService');
+const { authenticateUser, generateToken } = require('../services/authService');
 const EmailService = require('../services/emailService');
 const Logger = require('../services/loggerService');
 
@@ -75,7 +75,7 @@ class AuthController {
 
         } catch (error) {
             console.error('Error en forgotPassword:', error);
-            
+
             Logger.log('PASSWORD_RESET_ERROR', `Error en proceso de recuperación`, {
                 email: req.body.email,
                 error: error.message,
@@ -165,7 +165,7 @@ class AuthController {
 
         } catch (error) {
             console.error('Error en resetPassword:', error);
-            
+
             return res.status(400).json({
                 success: false,
                 message: error.message
@@ -187,7 +187,7 @@ class AuthController {
             }
 
             const stats = EmailService.getPasswordResetStats();
-            
+
             return res.status(200).json({
                 success: true,
                 data: stats
@@ -216,7 +216,7 @@ class AuthController {
             }
 
             const cleaned = EmailService.cleanupExpiredTokens();
-            
+
             Logger.log('CLEANUP_TOKENS', `Limpieza de tokens ejecutada`, {
                 tokensEliminados: cleaned,
                 adminId: req.user.id,
@@ -240,8 +240,19 @@ class AuthController {
 
     // TODO: Implementar otros métodos (login, register, logout, refreshToken)
     static async login(req, res) {
-        // TODO: Implementar login
-        res.status(501).json({ message: 'Login no implementado aún' });
+        const { email, password } = req.body;
+        const user = await authenticateUser(email, password);
+        if (!user) {
+            return res.status(401).render('login', { error: 'Email o contraseña incorrectos' });
+        }
+        const token = generateToken(user);
+        // Puedes enviar el token en cookie httpOnly para seguridad
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 24 * 60 * 60 * 1000, // 24 horas
+        });
+        res.redirect('/dashboard');
     }
 
     static async register(req, res) {
@@ -250,8 +261,8 @@ class AuthController {
     }
 
     static async logout(req, res) {
-        // TODO: Implementar logout
-        res.status(501).json({ message: 'Logout no implementado aún' });
+        res.clearCookie('token');
+        res.redirect('/login');
     }
 
     static async refreshToken(req, res) {
@@ -260,4 +271,6 @@ class AuthController {
     }
 }
 
-module.exports = AuthController;
+module.exports = {
+    AuthController
+};
